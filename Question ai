@@ -1,0 +1,18 @@
+import openai
+# Set up openai API key
+openai.api_key = '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'
+#define the prompt and other parameters
+prompt = "What is the capital of Telangana?"
+engine = "gpt-3.5-turbo-instruct"
+#Make API call to OpenAI GPT-3
+
+response = openai.Completion.create(
+    engine=engine,
+    prompt=prompt,
+    temperature=0.6,
+    max_tokens=100
+)
+#play with the temperature,prompts and max_tokens parameters to get
+print(response)
+#Extract and print the generated response
+generated_text = response.choices[0].text.strip()
